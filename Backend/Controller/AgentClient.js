@@ -5,7 +5,6 @@ const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const secretyKey = "abcdefghijklmnopqrstuvwxyzabcdef";
 
-
 exports.registerAgent = (async (request, response, next) => {
     try {
         
@@ -92,8 +91,8 @@ exports.registerAgent = (async (request, response, next) => {
         console.log("agentDetails", agentDetailsCheck);
        
         const agentdetails = agentDetailsCheck.save(async function (error, saveResult) {
-           if (error) { throw new Error(error); }
-            
+            if (error) { throw new Error(error); }
+  
             
             let responseData = {
                 status: "SUCCESS",
@@ -101,14 +100,15 @@ exports.registerAgent = (async (request, response, next) => {
                 data: []
                             
             }; universalFunction.sendResponse(request, response, responseData, next);
-           
-        }
-        
+            }
+   
         );
+        
         
     } catch (error) {
         console.log(error);
         next(error);
+        
        
     }
 

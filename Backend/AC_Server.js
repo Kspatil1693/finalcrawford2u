@@ -9,11 +9,12 @@ const clientRouter = require('./Routes/ClientRoutes/ClientRoute');
 const categoriesRouter = require("./Routes/Categories-SubCategoriesRoutes/CategoriesRoute");
 const productRouter = require("./Routes/ProductRoutes/ProductRoute");
 const orderRouter = require("./Routes/OrderRoutes/OrderRoute");
-
+const bodyParser = require('body-parser');
 
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 /*app.use(express.static(path.join(__dirname, '../frontend/build')));
 app.get('*', (req, res) => {
